@@ -1,4 +1,5 @@
 import 'package:daily_cats_app/screens/detail_screen.dart';
+import 'package:daily_cats_app/screens/upload_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/cat.dart';
 
@@ -73,7 +74,12 @@ class _ListScreenState extends State<ListScreen> {
         title: const Text("Daily Cats"),
         actions: [
           IconButton(
-            onPressed:  () {},
+            onPressed:  () {
+              showDialog(
+                context: context,
+                builder: (_) => const UploadScreen(),
+              );
+            },
             icon: const Icon(Icons.camera_alt),
           )
         ],
@@ -96,7 +102,9 @@ class _ListScreenState extends State<ListScreen> {
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => DetailScreen(cat: cats[index],),
+                builder: (context) => DetailScreen(
+                  cat: cats[index],
+                  ),
               )
             );
           },

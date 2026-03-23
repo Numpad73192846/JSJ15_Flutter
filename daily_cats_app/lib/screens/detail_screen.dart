@@ -22,6 +22,8 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  bool isLiked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +65,13 @@ class _DetailScreenState extends State<DetailScreen> {
                         IconButton(
                           padding: EdgeInsets.zero,
                           icon: Icon(
-                            Icons.thumb_up_outlined,
+                            isLiked ? Icons.thumb_up : Icons.thumb_up_outlined,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              isLiked = !isLiked;
+                            });
+                          },
                         ),
                         Text(
                           widget.cat.likeCount.toString(),
