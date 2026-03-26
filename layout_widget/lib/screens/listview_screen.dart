@@ -51,7 +51,7 @@ class _ListviewScreenState extends State<ListviewScreen> {
             //   children: productWidgetList,
             // ),
           ListView.builder(
-            itemCount: productList.length,
+            itemCount: productList.length,  // 아이템 개수
             itemBuilder: (context, index) {
               final product = productList[index];
               return ListTile(
